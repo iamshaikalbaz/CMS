@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('../partials/head', { css: "empty", title: "Admin-Dashboard" }); %>
+    <link rel="stylesheet" href="/css/admin-dashboard/employee/all-employee.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<%- include('../dashboards/dashboard', { title: "Employee Dashboard", name: "Admin" }); %>
+
+<body>
+    <div class="container">
+        <div class="box box1">
+            <table class="table">
+                <thead>
+                    <tr id="name">
+                        <th colspan="8">Employees</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">App. Id</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Mobile</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Approve</th>
+                        <th scope="col">Reject</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% applicants.forEach(applicant => { %>
+                        <tr>
+                            <td><%= applicant.id %></td>
+                            <td><%= applicant.first_name %></td>
+                            <td><%= applicant.last_name %></td>
+                            <td><%= applicant.username %></td>
+                            <td><%= applicant.mobile %></td>
+                            <td><%= applicant.email %></td>
+                            <td>
+                                <form action="/admin/application/approve/<%= applicant.id %>" method="POST" style="display:inline;">
+                                    <button type="submit" style="background: green; color: white; border: none; padding: 5px 10px; border-radius: 5px;">
+                                        <i class="fas fa-check"></i> Approve
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="/admin/application/reject/<%= applicant.id %>" method="POST" style="display:inline;">
+                                    <button type="submit" style="background: red; color: white; border: none; padding: 5px 10px; border-radius: 5px;">
+                                        <i class="fas fa-times"></i> Reject
+                                    </button>
+                                </form>
+                            </td>
+                            
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+<%- include('../partials/footer'); %>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('../partials/head', { css: "empty", title: "Admin-Dashboard" }); %>
+        <link rel="stylesheet" href="/css/LPcss/admin-dash.css">
+    </head>
+    <%- include('../dashboards/dashboard'); %>
+
+    <body>
+        <div class="content">
+            <div class="boxex">
+                <div class="box-1">
+                    <a href="/admin/employees/all" style="color: white;"><h3>View All Employee</h3></a>
+                    <i class="fa-sharp fa-solid fa-eye"></i>
+                </div>
+                <div class="box-2">
+                    <a href="/admin/employees/hire" style="color: white;"><h3>Add Employee</h3></a>
+                    <i class="fa-solid fa-circle-plus"></i>
+                </div>
+                <div class="box-3">
+                <a href="/admin/applications/all" style="color: white;"><h3>Approve Employee</h3></a>
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div class="box-4">
+                    <a href="/admin-dashboard/employee/salary-employee" style="color: white;"><h3>View Employee Salary</h3></a>
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <%- include('../partials/footer'); %>
+</html>

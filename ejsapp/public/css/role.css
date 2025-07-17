@@ -1,0 +1,129 @@
+@import url("./header.css");
+@import url("./footer.css");
+@import url("./index.css");
+
+
+body{
+  background-color: #2f363e;
+}
+
+:root {
+    --bg-color: #080808;
+    --second-bg-color: #131313;
+    --text-color: white;
+    --main-color: #00ffee;
+  }
+
+.container{
+    width: 100%;
+    padding: 20px;
+}
+.container box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.container .box1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .box1 .card{
+    width: 18rem;
+    height: 21rem;
+    margin: 30px;
+    margin-top: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #2f363e;
+    border-radius: 20px;
+    float: left;
+    box-shadow: 25px 25px 75px rgba(0,0,0,0.25),
+        10px 10px 70px rgba(0,0,0,0.25),
+        inset 5px 5px 10px rgba(0,0,0,0.5),
+        inset 5px 5px 20px rgba(255,255,255,0.2),
+        inset -5px -5px 15px rgba(0,0,0,0.75);
+}
+.container .box1 .card:hover{
+    transform: scale(1.05);
+    
+}
+.container .box1 .card img{
+    width: 180px;
+    margin-top: 0px;
+    align-items: center;
+    justify-content: center;
+    
+}
+.container .box1 .card-title{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 17px;
+    color: wheat;
+}
+.container .box1 .btn{
+  width: 80px;
+  height: 40px;
+  padding: 5px;
+  border-radius: 10px;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 20px;
+  background-color: magenta;
+  box-shadow: 5px 5px 7px rgba(0,0,0,0.25),
+        inset 2px 2px 5px rgba(255,255,255,0.5),
+        inset -3px -3px 5px rgba(0,0,0,0.5);
+}
+
+
+
+@media(max-width:1285px){
+    .container .box1 .card{
+      width: 30%;
+    }
+    .container .box1 .card img{
+      width: 170px;
+      margin-left: -2px;
+    }
+    .container .box1 .card-title{
+      font-size: 15px;
+    }
+    .container .box1 .btn{
+      width: 70px;
+      font-size: 15px;
+    }
+    
+}
+@media(max-width:991px){
+    .container .box1 .card{
+      width: 50%;
+      margin: 30px;
+      margin-left: 7rem;
+        align-items: center;
+        justify-content: center;
+    }
+    .container .box1 .card img{
+        width: 150px;
+        margin-left: -2px;
+    }
+    .container .box1 .card-title{
+      font-size: 20px;
+    }
+    .container .box1 .btn{
+      font-size: 15px;
+      width: 70px;
+    }
+    
+}
+@media(max-width:895px){
+    .container .box1 .card{
+      align-items: center;
+      width: 50%;
+    }
+    
+    
+    
+}

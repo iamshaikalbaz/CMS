@@ -1,0 +1,10 @@
+@import url("../admin-dash.css");
+@import url("../footer.css");
+
+body{
+    background-color: magenta;
+}
+h1{
+    font-size: 50px;
+    color: wheat;
+}

@@ -1,0 +1,279 @@
+@import url("./header.css");
+@import url("./footer.css");
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+  list-style-type: none;
+}
+
+
+
+
+/*
+Main CSS
+*/
+body {
+  background-color: var(--main-color);
+  width: 100%;
+ 
+}
+
+:root {
+  --bg-color: #080808;
+  --second-bg-color: #131313;
+  --text-color: white;
+  --main-color: #00ffee;
+}
+
+.section-1 img{
+  width: 100%;
+  height: 100vh;
+  
+}
+
+
+.section-1 .name{
+  width: 100%;
+  height: 91vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-1 h1 {
+  font-size: 60px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 4px 0px 0px magenta;
+}
+
+
+
+.section-2 h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-top: 30px;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  padding: 50px;
+}
+
+.section-2 p {
+  padding: 0px;
+  margin-top: 60px;
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 200;
+  line-height: 55px;
+}
+
+.section-2 .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-2 .btn .btn-1 {
+  width: 13%;
+  text-decoration: none;
+  padding: 10px;
+  background-color: rgb(143, 54, 54);
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 60px;
+  margin-bottom: 90px;
+  font-size: 1.2rem;
+  color: wheat;
+  border: 2px solid transparent;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.section-2 .btn-1:hover {
+  transform: scale(1.05);
+  background-color: wheat;
+  box-shadow: 0 0 25px black;
+  color: black;
+}
+
+.section-3 {
+  position: relative;
+  height: 100vh;
+  /* Ensure this section takes full height */
+  overflow: hidden;
+  /* Hide overflow */
+}
+
+.section-3 .image-container {
+  position: relative;
+  /* Establish positioning for the text overlay */
+  height: 100%;
+  /* Make sure it takes full height */
+}
+
+.section-3 .image-container img {
+  width: 100%;
+  height: 100%;
+  /* Ensure the image fills the container */
+  object-fit: cover;
+  /* Cover the area */
+  transition: filter 1.5s ease;
+}
+
+.section-3 .text-overlay {
+  position: absolute;
+  top: 45%;
+  /* Center vertically */
+  left: 50%;
+  /* Center horizontally */
+  transform: translate(-50%, -50%);
+  /* Center the text */
+  width: 600px;
+  /* Set a width */
+  color: rgb(25, 22, 22);
+  font-size: 30px;
+  font-weight: 350;
+  line-height: 50px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+.blurred img {
+  filter: blur(10px);
+}
+
+.blurred .text-overlay {
+  opacity: 1;
+}
+
+
+
+.section-4 .main-box {
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.section-4 .main-box h2 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  padding: 30px;
+}
+
+.section-4 .main-box p {
+  font-size: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 200;
+  margin-bottom: 40px;
+}
+
+.section-4 .main-box img {
+  width: 12rem;
+  margin-top: 5px;
+  border-radius: 50%;
+  border: 3px solid var(--main-color);
+  box-shadow: 0 0 25px var(--main-color);
+}
+
+.section-4 .wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 3rem;
+}
+
+.section-4 .main-item {
+  min-height: 150px;
+  max-width: 350px;
+  margin-top: 60px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 3px solid rgba(238, 238, 238, 0.2);
+  border-radius: 1rem;
+  margin: 0 2rem;
+  padding: 30px 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  color: white;
+  transition: 0.4s ease-in-out;
+}
+
+.section-4 .main-item:hover {
+  border: 3px solid yellow;
+  transform: translateY(-10px)scale(1.03);
+  box-shadow: 0 0 25px var(--bg-color);
+}
+
+.section-4 .main-item h2 {
+  color: wheat;
+  margin-top: -30px;
+  font-size: 1.5rem;
+}
+
+.section-4 .main-item p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-top: -50px;
+  margin-bottom: -20px;
+  margin-left: 30px;
+}
+
+.section-4 .btn-2 {
+  display: inline-block;
+  text-decoration: none;
+  padding: 1rem 2.8rem;
+  background-color: rgb(143, 54, 54);
+  margin-bottom: 40px;
+  border-radius: 10rem;
+  font-size: 1.6rem;
+  color: wheat;
+  border: 2px solid transparent;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-2:hover {
+  transform: scale(1.05);
+  background-color: wheat;
+  box-shadow: 0 0 25px black;
+  color: black;
+}
+
+
+.footer {
+  margin-top: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

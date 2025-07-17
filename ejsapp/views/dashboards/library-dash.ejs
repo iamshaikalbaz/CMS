@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('./partials/head', {css: "empty" , title: "Librarian-Dashboard" }); %>
+        <link rel="stylesheet" href="/css/LPcss/admin-dash.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+        <style>
+            body {
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
+            nav {
+                transition: background-color 0.3s ease;
+            }
+
+            /* ✅ Apply dark mode styles to body */
+            .dark {
+                background-color: rgb(17, 23, 34);
+                color: #191b1c;
+            }
+
+            #theme-toggle-light-icon {
+                fill: #111111;
+                /* Yellow */
+            }
+
+            #theme-toggle-dark-icon {
+                fill: #0b0a0a;
+                /* White */
+            }
+
+            .dark nav {
+                background-color: rgb(17, 23, 34);
+                border-color: #0d0d0e;
+            }
+
+            .dark nav a {
+                color: #bfd5ec;
+            }
+
+            .container {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .container box {
+                width: 100%;
+                height: 100%;
+                display: flex;
+            }
+
+            .container .box1 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .notice h1 {
+                margin-top: 100px;
+            }
+
+            .content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 50px;
+                margin-top: 50px;
+                flex-wrap: wrap;
+            }
+
+            .card {
+                width: 18rem;
+                border-radius: 12px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                background: white;
+            }
+
+            .card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+
+            .card img {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+                border-top-left-radius: 12px;
+                border-top-right-radius: 12px;
+            }
+
+            .card-body {
+                padding: 20px;
+                text-align: center;
+            }
+
+            .card-title {
+                font-size: 1.2rem;
+                font-weight: bold;
+                margin-bottom: 10px;
+                color: #333;
+            }
+
+            .card p {
+                font-size: 1rem;
+                color: #666;
+                margin-bottom: 15px;
+            }
+
+            .btn-primary {
+                display: inline-block;
+                text-decoration: none;
+                background: #007bff;
+                color: white;
+                padding: 10px 15px;
+                border-radius: 8px;
+                font-weight: bold;
+                transition: background 0.3s ease;
+            }
+
+            .btn-primary:hover {
+                background: #0056b3;
+            }
+        </style>
+
+</head>
+
+<body id="body-pd">
+    <header class="header" id="header">
+        <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+        <div class="name">SGDC College Management</div>
+        <button id="theme-toggle"
+            class="ml-3 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg p-2">
+
+            <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zM10 16a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM4.22 4.22a1 1 0 011.42 0l.7.7a1 1 0 01-1.42 1.42l-.7-.7a1 1 0 010-1.42zM14.66 14.66a1 1 0 011.42 0l.7.7a1 1 0 01-1.42 1.42l-.7-.7a1 1 0 010-1.42zM2 10a1 1 0 011-1h1a1 1 0 110 2H3a1 1 0 01-1-1zm14 0a1 1 0 011-1h1a1 1 0 110 2h-1a1 1 0 01-1-1zM4.22 15.78a1 1 0 010-1.42l.7-.7a1 1 0 011.42 1.42l-.7.7a1 1 0 01-1.42 0zM14.66 5.34a1 1 0 010-1.42l.7-.7a1 1 0 011.42 1.42l-.7.7a1 1 0 01-1.42 0z">
+                </path>
+            </svg>
+            <svg id="theme-toggle-dark-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                    d="M17.293 13.293a8 8 0 01-11.612-11.612 1 1 0 10-1.415-1.415 10 10 0 0014.142 14.142 1 1 0 10-1.415-1.415z">
+                </path>
+            </svg>
+
+
+        </button>
+        <div class="header_img"> <img src="/images/libraryl-removebg-preview.png" alt=""> </div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span
+                        class="nav_logo-name">SGDC</span> </a>
+                <div class="admin">
+                    <img src="/images/libraryl-removebg-preview.png" alt="">
+                    <h1>
+                        <%= name %>
+                    </h1>
+                </div>
+                <div class="nav_list">
+                    <a href="#" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i><span
+                            class="nav_name">Dashboard</span> </a>
+
+                    <a href="/" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span
+                            class="nav_name">LogOut</span> </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+
+
+    <div class="notice">
+        <h1>Library</h1>
+    </div>
+
+    <div class="content" style="display: flex;align-items: center;justify-content: center;gap: 50px;margin-top: 50px;">
+        <!--Container Main start-->
+        <div class="card" style="width: 18rem;">
+            <img src="/images/spring-start-here-9781638356950.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Java Spring</h5>
+                <p>Spring Start Here is a book by Laurentiu Spilca</p>
+                <a href="/pdf/Laurentiu Spilca - Spring Start Here - Learn what you need and learn it well-Manning (2023).pdf"
+                    target="_blank" class="btn btn-primary">View Book</a>
+
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="/images/js.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Java Script</h5>
+                <p>Spring Start Here is a book by Laurentiu Spilca</p>
+                <a href="/pdf/javascript notes .pdf" target="_blank" class="btn btn-primary">View Book</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="/images/git.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Git & Github</h5>
+                <p>Spring Start Here is a book by Laurentiu Spilca</p>
+                <a href="/pdf/Git & GitHub Handbook .pdf" target="_blank" class="btn btn-primary">View Book</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="/images/spring-start-here-9781638356950.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Java Spring</h5>
+                <p>Spring Start Here is a book by Laurentiu Spilca</p>
+                <a href="/pdf/Laurentiu Spilca - Spring Start Here - Learn what you need and learn it well-Manning (2023).pdf"
+                    target="_blank" class="btn btn-primary">View Book</a>
+
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="/images/js.png" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Java Script</h5>
+                <p>Spring Start Here is a book by Laurentiu Spilca</p>
+                <a href="/pdf/javascript notes .pdf" target="_blank" class="btn btn-primary">View Book</a>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="/images/git.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Git & Github</h5>
+                <p>Spring Start Here is a book by Laurentiu Spilca</p>
+                <a href="/pdf/Git & GitHub Handbook .pdf" target="_blank" class="btn btn-primary">View Book</a>
+            </div>
+        </div>
+        <!--Container Main end-->
+    </div>
+
+
+    <%- include('./partials/footer') %>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const toggle = document.getElementById("header-toggle");
+                const nav = document.getElementById("nav-bar");
+                const bodypd = document.getElementById("body-pd");
+                const linkColor = document.querySelectorAll(".nav_link");
+                const themeToggle = document.getElementById("theme-toggle");
+                const lightIcon = document.getElementById("theme-toggle-light-icon");
+                const darkIcon = document.getElementById("theme-toggle-dark-icon");
+
+                // ✅ Sidebar State: Check LocalStorage
+                if (localStorage.getItem("sidebar") === "show") {
+                    nav.classList.add("show");
+                }
+
+                // ✅ Sidebar Toggle + Save State
+                if (toggle && nav) {
+                    toggle.addEventListener("click", () => {
+                        nav.classList.toggle("show");
+                        localStorage.setItem("sidebar", nav.classList.contains("show") ? "show" : "hide");
+                    });
+                }
+
+                // ✅ Highlight Active Link (Auto + On Click)
+                function setActiveLink(clickedLink) {
+                    linkColor.forEach(link => link.classList.remove("active"));
+                    clickedLink.classList.add("active");
+                }
+
+                linkColor.forEach(link => {
+                    link.addEventListener("click", function () {
+                        setActiveLink(this);
+                        localStorage.setItem("activeLink", this.getAttribute("href"));
+                    });
+
+                    if (link.getAttribute("href") === localStorage.getItem("activeLink")) {
+                        setActiveLink(link);
+                    }
+                });
+
+                // ✅ Dark Mode
+                if (localStorage.getItem("theme") === "dark") {
+                    document.body.classList.add("dark");
+                    darkIcon.classList.add("hidden");
+                    lightIcon.classList.remove("hidden");
+                }
+
+                themeToggle.addEventListener("click", function () {
+                    document.body.classList.toggle("dark");
+                    const isDarkMode = document.body.classList.contains("dark");
+
+                    if (isDarkMode) {
+                        localStorage.setItem("theme", "dark");
+                        darkIcon.classList.add("hidden");
+                        lightIcon.classList.remove("hidden");
+                    } else {
+                        localStorage.setItem("theme", "light");
+                        lightIcon.classList.add("hidden");
+                        darkIcon.classList.remove("hidden");
+                    }
+                });
+            });
+
+            // ✅ PDF Generation Function
+            function generatePDF() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+                let name = document.getElementById("name").value;
+                let email = document.getElementById("email").value;
+                let phone = document.getElementById("phone").value;
+                let message = document.getElementById("message").value;
+
+                doc.setFont("helvetica", "bold");
+                doc.text("User Information", 20, 20);
+                doc.setFont("helvetica", "normal");
+
+                doc.text(`Name: ${name}`, 20, 40);
+                doc.text(`Email: ${email}`, 20, 50);
+                doc.text(`Phone: ${phone}`, 20, 60);
+                doc.text("Message:", 20, 80);
+                doc.text(message, 20, 90, { maxWidth: 170 });
+
+                doc.save("FormDetails.pdf");
+            }
+
+        </script>
+
+
+</body>
+
+</html>

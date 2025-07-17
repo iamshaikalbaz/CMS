@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<head>
+  <%- include('./partials/head', {css: "index" , title: "Index" }); %>
+</head>
+
+<html>
+<%- include('./partials/navbar'); %>
+  <%- include('./partials/mode'); %>
+
+    <body>
+      <section class="section-1">
+        <div class="name">
+          <img src="/images/speaker-giving-talk-on-corporate-600nw-535428454.webp" alt="">
+
+        </div>
+      </section>
+
+      <section class="section-2">
+        <h1>A Societal Mission</h1>
+        <p>Shri Gnanambica Degree College was founded almost 25 years ago on a bedrock of societal purpose. Our mission
+          is to contribute to the world by educating students for lives of leadership and contribution with integrity;
+          advancing fundamental knowledge and cultivating creativity; leading in pioneering research for effective
+          clinical therapies; and accelerating solutions and amplifying their impact.</p>
+        <div class="btn">
+          <a class="btn-1" href="#">More about SGDC</a>
+        </div>
+      </section>
+
+      <section class="section-3">
+        <div class="image-container" id="imageContainer">
+          <img src="images/APJ-Abdul-Kalam.jpg" alt="">
+          <div class="text-overlay">"Don’t take rest after your first victory because if you fail in second, more lips
+            are waiting to say that your first victory was just luck."<br>- APJ Abdul Kalam</div>
+        </div>
+      </section>
+
+      <section class="section-4">
+        <div class="main-box">
+          <h2>Research</h2>
+          <p>Driving discoveries vital to our world, our health, and our intellectual life</p>
+
+          <div class="wrapper">
+            <div class="main-item">
+              <img src="images/employee.png" alt="">
+              <h2>Employees</h2>
+
+              <p>There are totally 50 Employees </p>
+            </div>
+
+            <div class="main-item">
+              <img src="images/student-removebg-preview.png" alt="">
+              <h2>Students</h2>
+
+              <p>There are totally 2400 Student </p>
+            </div>
+
+            <div class="main-item">
+              <img src="images/libraryl-removebg-preview.png" alt="">
+              <h2>Libraries</h2>
+
+              <p>Hold over 3000 items are available </p>
+            </div>
+
+          </div>
+
+          <a class="btn-2" href="/roles">More Information &rarr;</a>
+
+        </div>
+      </section>
+    </body>
+
+    <%- include('./partials/footer'); %>
+
+    <script>
+      window.addEventListener('scroll', function() {
+      var container = document.getElementById('imageContainer');
+      var containerPosition = container.getBoundingClientRect().top;
+      var screenPosition = window.innerHeight / 1.5;
+  
+      if (containerPosition < screenPosition) {
+        container.classList.add('blurred'); 
+      } else {
+        container.classList.remove('blurred'); 
+      }
+    });
+
+     // ✅ Apply Dark Mode to the Entire Body
+     if (localStorage.getItem("theme") === "dark") {
+                document.body.classList.add("dark");
+                darkIcon.classList.add("hidden");
+                lightIcon.classList.remove("hidden");
+            } else {
+                document.body.classList.remove("dark");
+                lightIcon.classList.add("hidden");
+                darkIcon.classList.remove("hidden");
+            }
+    
+            themeToggle.addEventListener("click", function () {
+                document.body.classList.toggle("dark");
+                const isDarkMode = document.body.classList.contains("dark");
+    
+                if (isDarkMode) {
+                    localStorage.setItem("theme", "dark");
+                    darkIcon.classList.add("hidden");
+                    lightIcon.classList.remove("hidden");
+                } else {
+                    localStorage.setItem("theme", "light");
+                    lightIcon.classList.add("hidden");
+                    darkIcon.classList.remove("hidden");
+                }
+            });
+  
+  </script>
+
+</html>

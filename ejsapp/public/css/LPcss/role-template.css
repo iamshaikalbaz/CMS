@@ -1,0 +1,107 @@
+@import url("./header.css");
+@import url("../footer.css");
+
+body{
+    background-color: var(--main-color);
+}
+:root{
+    --bg-color: #080808;
+    --second-bg-color: #131313;
+    --text-color: white;
+    --main-color: #00ffee;
+}
+
+
+.container{
+    width: 100%;
+    padding: 20px;
+}
+.container bom{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.container .bom1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .bom1 h1 {
+    font-size: 50px;
+    font-weight: 100;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-top: 8rem;
+}
+
+.container .bom1 h3 {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 100;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container .bom1 hr {
+    width: 100%;
+    border: none;
+    border-top: 2px solid #ccc;
+    margin-top: 2.5rem;
+}
+
+.container .bom1 h3 {
+
+    font-size: 20px;
+    margin-top: 2rem;
+    text-align: center;
+    font-weight: 100;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container .bom1 .btn-1 .btn {
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 20px;
+   margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    background-color: rgb(168, 78, 253);
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.25),
+        inset 2px 2px 5px rgba(255, 255, 255, 0.5),
+        inset -3px -3px 5px rgba(0, 0, 0, 0.5);
+}
+.container .bom1 .btn-1 .btn:hover {
+    transform: scale(1.05);
+    background-color: rgb(245, 98, 12);
+    color: white;
+}
+
+.container .bom1 .btn-1 .btn-3:hover {
+    transform: scale(1.05);
+    background-color: rgb(245, 98, 12);
+    color: white;
+}
+
+@media(max-width:1285px) {
+    html {
+        font-size: 100%;
+    }
+
+}
+
+@media(max-width:991px) {
+    h1 {
+        font-size: 35px;
+    }
+    .container .bom1 h3 {
+        font-size: 18px;
+    }
+
+    .btn-1 {
+        size: 30px;
+        font-size: 20px;
+    }
+}
+
+@media(max-width:895px) {}

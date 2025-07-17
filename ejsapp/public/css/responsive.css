@@ -1,0 +1,92 @@
+@media(max-width:1285px){
+    html{
+        font-size: 55%;
+    }
+
+}
+@media(max-width:991px){
+    .container-fluid .navbar-brand {
+        font-size: 20px;
+    }
+    .collapse .navbar-nav .nav-item .nav-link{
+        text-align: center;
+    }
+    .section-1 .name h1{
+        width: 100%;
+        text-align: center;
+        font-size: 30px;
+    }
+    .section-2 p{
+        margin: 2px;
+        font-size: 20px;
+    }
+    .section-2 .btn .btn-1{
+        width: 30%;
+        font-size: 20px;
+    }
+    .section-4 .main-box h2{
+        font-size: 30px;
+    }
+    .footer{
+        padding: 2rem 3%;
+    }
+}
+@media(max-width:795px){
+    #menu-icon{
+        font-size: 30px;
+        display: block;
+    }
+    .navbar-toggler{
+        color: #1d312f;
+    }
+    .navbar-toggler-icon{
+        color: #00ffee;
+    }
+    .nav-item .nav-link active{
+        font-size: 20px;
+        text-align: center;
+        color: magenta;
+    }
+    .d-flex{
+        text-align: center;
+        height: 30px;
+        font-size: 20px;
+    }
+    .d-flex .form-control{
+        font-size: 17px;
+    }
+    .d-flex .btn{
+        font-size: 17px;
+        border: 2px solid yellow;
+        color: wheat;
+        
+    }
+    .section-2 .btn .btn-1{
+        width: 35%;
+        font-size: 13px;
+    }
+    .section-3 .text-overlay{
+        width: 80%;
+        font-size: 20px;
+    }
+   
+    .section-4 .main-box p{     
+        font-size: 20px;
+        text-align: center;
+    }
+    .section-4 .wrapper{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 3rem;
+    }
+    .section-4 .main-box img{
+        margin-top: -10px;
+    }
+    .section-4 .main-box h2{
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .section-4 .main-box p{
+        font-size: 12px;
+    }
+}

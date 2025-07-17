@@ -1,0 +1,65 @@
+@import url("../admin-dash.css"); /* Ensure correct path */
+@import url("../footer.css"); /* Ensure correct path */
+
+.container {
+    width: 100%;
+    padding: 10px;
+}
+
+.container .box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container .box1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.container .box1 .table {
+    margin-top: 50px;
+    margin-bottom: -140px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+/* Header row */
+.container .box1 .table #name th {
+    font-size: 24px;
+    padding: 12px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: yellow;
+    background-color: rgb(74, 72, 72);
+}
+
+/* Table Borders */
+.container .box1 .table th, 
+.container .box1 .table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* Delete button styling */
+.container .box1 .table td form button {
+    font-size: 18px;
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.container .box1 .table td form button:hover {
+    color: darkred;
+}

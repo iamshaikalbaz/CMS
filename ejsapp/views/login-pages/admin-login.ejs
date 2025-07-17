@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/LPcss/employee/emp-job.css">
+
+        <%- include('./partials/head', {css: "LPcss/admin-login", title: "roles"}); %>
+    </head>
+  
+    <body>
+        
+        <%- include('./partials/navbar'); %>
+        <%- include('./partials/mode'); %>
+
+       <div class="container">
+        <div class="bomb bomb1">
+            <form class="form" method="POST" action="<%= check %>">
+                <div class="label"><%= role %> Login Page</div>
+                
+                <div class="layout">
+                    <input type="text" name="username" placeholder="User Name" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <a href=""><input class="button" type="submit" value="Submit"></a>
+                    <p>All ready have an Account?<a style="text-decoration: none; color: blue;" href="<%= signup %>">SignUp here</a></p>
+                </div>
+            </form>
+        </div>
+       </div>
+    </body>
+
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();  // Prevent form from reloading the page
+
+    let username = document.getElementById('username').value.trim();  // Get username from input
+
+    fetch('/student/check', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username: username })  // Send entered username
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.exists) {
+            console.log("Login successful!", data.student);
+            alert("Welcome " + data.student.first_name);
+            window.location.href = "/student/dashboard";  // Redirect to student dashboard
+        } else {
+            console.log("Invalid username:", data.message);
+            alert("Invalid username! Please try again.");
+        }
+    })
+    .catch(error => console.error("Error:", error));
+});
+
+    </script>
+
+    <%- include('./partials/footer'); %>
+</html>

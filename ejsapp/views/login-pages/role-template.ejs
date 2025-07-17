@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('./partials/head', {css: "role-template", title: "roles"}); %>
+    <link rel="stylesheet" href="/css/LPcss/role-template.css">
+</head>
+
+<body>
+
+    <%- include('./partials/navbar'); %>
+    <%- include('./partials/mode'); %>
+
+    <div class="container">
+        <div class="bom bom1">
+            <section>
+                <h1>Hello <%= user.role %></h1>
+                <h3>Welcome to Gnanambica College Management System</h3>
+                <hr width="100%">
+                <h3>You can access various features after Login/SignUp.</h3>
+                <div class="btn-1">
+                    <button class="btn" style="width: 200px;">
+                        <a href="<%= user.signup %>"><%= user.signupText %></a>
+                    </button>
+                    <button class="btn">
+                        <a href="<%= user.login %>">Login</a>
+                    </button>
+                </div>
+            </section>  
+        </div>
+    </div>
+
+    <%- include('./partials/footer'); %>
+        
+</body>
+
+
+</html>
+
+<!-- views/partials/role-template.ejs -->
+
+

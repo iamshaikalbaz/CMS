@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('../partials/head', { css: "empty", title: "Admin-Dashboard" }); %>
+        <link rel="stylesheet" href="/css/admin-dashboard/employee/add-employee.css"">
+    </head>
+    <%- include('../dashboards/dashboard', { title: "Employee Dashboard", name: "Admin" }); %>
+
+    <body>
+        <div class="content">
+            <!--Container Main start-->
+
+
+
+
+            <form  method="post" action="<%= submit  %>">
+                <div class="box">
+                    <h1>Hire Employee</h1>
+                    <div class="inputs">
+                        <input type="text" name="firstName" placeholder="First Name" required>
+                        <input type="text" name="lastName" placeholder="Last Name" required>
+                        <input type="text" name="username" placeholder="User Name" required>
+                        <input type="password" name="password" placeholder="Password" required>
+                        
+    
+                        <input type="text"  name="mobile"  placeholder="Mobile" required>
+                        
+                        <input type="email" name="email"  placeholder="Email" required>
+                    
+                        
+                    </div>
+                    <div class="input-group2">
+                        <input class="button btn btn-primary" type="submit" value="Submit">
+                        <!-- <a href="#"><input class="btn btn-primary" type="submit" value="Submit"></a> -->
+                    </div>
+                </div>
+    
+    
+            </form>
+
+        </div>
+    
+    </body>
+
+    <%- include('../partials/footer'); %>
+</html>

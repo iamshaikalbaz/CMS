@@ -1,0 +1,24 @@
+@import url("./header.css");
+@import url("./footer.css");
+
+body{  
+    background-color: #2f363e;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+    list-style-type: none;
+  }
+
+  
+  
+:root{
+    --bg-color: #080808;
+    --second-bg-color: #131313;
+    --text-color: white;
+    --main-color: #00ffee;
+}

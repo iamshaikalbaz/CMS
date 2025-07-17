@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('../partials/head', { css: "empty", title: "Admin-Dashboard" }); %>
+        <link rel="stylesheet" href="/css/admin-dashboard/employee/all-employee.css"">
+    </head>
+    <%- include('../dashboards/dashboard'); %>
+
+    <body>
+        <div class="container">
+            <div class="box box1">
+                <table class="table">
+            
+                    <thead>
+                        <tr id="name">
+                            <th colspan="2">Employees Salary</th>
+                        </tr>
+                      <tr>
+                        <th scope="col">Employee Name</th>
+                        <th scope="col">Salary</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                  </table>  
+            </div>
+        </div>
+    </body>
+
+    <%- include('../partials/footer'); %>
+</html>

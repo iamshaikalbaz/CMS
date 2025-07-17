@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('./partials/head', {css: "index" , title: "roles" }); %>
+        <style>
+            /* Center the entire message container */
+            .message-container {
+                text-align: center;
+                margin-top: 50px;
+            }
+
+            /* Style for the user's name */
+            .user-name {
+                color: #413a35;
+                font-size: 40px;
+                font-weight: 400;
+                margin-bottom: 20px;
+                margin-top: 100px;
+            }
+
+            /* Style for the message */
+            .message-content h1 {
+                color: gray;
+                font-size: 30px;
+                font-weight: 400;
+            }
+
+            .message-content h2 {
+                margin-top: 20px;
+                color: gray;
+                font-size: 30px;
+                font-weight: 400;
+                margin-bottom: 90px;
+            }
+            .message-content h3 {
+                margin-top: 20px;
+                color: gray;
+                font-size: 30px;
+                font-weight: 400;
+            }
+        </style>
+</head>
+
+<body>
+
+    <%- include('./partials/navbar'); %>
+        <%- include('./partials/mode'); %>
+
+            <div class="message-container">
+                <h1 class="user-name">
+                   Hello <%= name %>
+                </h1>
+                <div class="message-content">
+                    <%- message %>
+                </div>
+            </div>
+
+            <%- include('./partials/footer'); %>
+
+</body>
+
+
+</html>
+
+<!-- views/partials/role-template.ejs -->

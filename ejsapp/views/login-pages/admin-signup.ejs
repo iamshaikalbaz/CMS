@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('./partials/head', {css: "LPcss/admin-login", title: "roles"}); %>
+    </head>
+    <%- include('./partials/navbar'); %>
+    <%- include('./partials/mode'); %>
+
+    <div class="container">
+        <div class="bomb bomb1">
+            <form class="form" method="POST" action="<%= newEndpoint %>">
+                <div class="label">Add a new <%= role %> to College</div>
+                <hr style="color: #080808;">
+                <div class="layout">
+                    <input type="text" name="firstName" placeholder="First Name" required>
+                    <input type="text" name="lastName" placeholder="Last Name" required>
+                    <input type="text" name="username" placeholder="User Name" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input class="button" type="submit" value="Submit">
+                    <p>Already have an Account? <a style="text-decoration: none; color: blue;" href="login">Login here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <%- include('./partials/footer'); %>
+</html>

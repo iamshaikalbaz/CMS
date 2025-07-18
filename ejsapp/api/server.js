@@ -61,8 +61,9 @@ app.use("/roles", roleRouter);
 
 
 app.get('/', (req, res) => {
-  res.send('Welcome to the CMS app!');
+  res.json({ status: "ok", message: "CMS App is running!" });
 });
+
 
 
 

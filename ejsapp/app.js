@@ -34,22 +34,15 @@ app.use((req, res, next) => {
   next();
 });
 
-
 // View engine setup
-app.set('views', [
-  path.join(__dirname, './views'),
-  path.join(__dirname, './views/login-pages/'),
-  path.join(__dirname, './views/dashboards/')
-]);
-app.use(express.static(path.join(__dirname, '../public')));
-
+app.set('views', [path.join(__dirname, 'views'), path.join(__dirname, 'views/login-pages/'), path.join(__dirname, 'views/dashboards/')]);
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', indexRouter);
@@ -58,12 +51,6 @@ app.use('/employee', usersRouter);
 app.use("/admin", adminRouter);
 app.use("/student", studentRouter);
 app.use("/roles", roleRouter);
-
-
-app.get('/', (req, res) => {
-  res.json({ status: "ok", message: "CMS App is running!" });
-});
-
 
 
 
@@ -286,5 +273,7 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-const serverless = require('serverless-http');
-module.exports = serverless(app);
+app.listen(5000, () => {
+  console.log(`🚀 Server running on port ${5000}`);
+});
+module.exports = app;

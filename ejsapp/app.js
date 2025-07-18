@@ -6,12 +6,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var ejs = require('ejs'); // Import EJS for rendering files
 
-var indexRouter = require('../routes/index');
-var libraryRouter = require('../routes/library');
-var usersRouter = require('../routes/employee');
-var adminRouter = require('../routes/admin');
-var studentRouter = require('../routes/stud');
-var roleRouter = require('../routes/roles');
+var indexRouter = require('./routes/index');
+var libraryRouter = require('./routes/library');
+var usersRouter = require('./routes/employee');
+var adminRouter = require('./routes/admin');
+var studentRouter = require('./routes/stud');
+var roleRouter = require('./routes/roles');
 
 
 const bodyParser = require('body-parser');
@@ -37,9 +37,9 @@ app.use((req, res, next) => {
 
 // View engine setup
 app.set('views', [
-  path.join(__dirname, '../views'),
-  path.join(__dirname, '../views/login-pages/'),
-  path.join(__dirname, '../views/dashboards/')
+  path.join(__dirname, './views'),
+  path.join(__dirname, './views/login-pages/'),
+  path.join(__dirname, './views/dashboards/')
 ]);
 app.use(express.static(path.join(__dirname, '../public')));
 

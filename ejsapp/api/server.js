@@ -6,12 +6,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var ejs = require('ejs'); // Import EJS for rendering files
 
-var indexRouter = require('./routes/index');
-var libraryRouter = require('./routes/library');
-var usersRouter = require('./routes/employee');
-var adminRouter = require('./routes/admin');
-var studentRouter = require('./routes/stud');
-var roleRouter = require('./routes/roles');
+var indexRouter = require('../routes/index');
+var libraryRouter = require('../routes/library');
+var usersRouter = require('../routes/employee');
+var adminRouter = require('../routes/admin');
+var studentRouter = require('../routes/stud');
+var roleRouter = require('../routes/roles');
 
 
 const bodyParser = require('body-parser');
@@ -24,7 +24,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
 
-  cookie: { secure: false } // ⚠️ Change to `true` if using HTTPS
+  cookie: { secure: false } // ⚠️ Change to true if using HTTPS
 }));
 
 
@@ -36,14 +36,20 @@ app.use((req, res, next) => {
 
 
 // View engine setup
-app.set('views', [path.join(__dirname, 'views'), path.join(__dirname, 'views/login-pages/'), path.join(__dirname, 'views/dashboards/')]);
+app.set('views', [
+  path.join(__dirname, '../views'),
+  path.join(__dirname, '../views/login-pages/'),
+  path.join(__dirname, '../views/dashboards/')
+]);
+app.use(express.static(path.join(__dirname, '../public')));
+
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', indexRouter);
@@ -52,8 +58,6 @@ app.use('/employee', usersRouter);
 app.use("/admin", adminRouter);
 app.use("/student", studentRouter);
 app.use("/roles", roleRouter);
-
-
 
 
 
@@ -278,8 +282,5 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-app.listen(5000, () => {
-  console.log("Server running on http://localhost:5000");
-});
-
-module.exports = app;
+const serverless = require('serverless-http');
+module.exports = serverless(app);

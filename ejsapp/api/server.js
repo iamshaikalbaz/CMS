@@ -60,6 +60,9 @@ app.use("/student", studentRouter);
 app.use("/roles", roleRouter);
 
 
+app.get('/', (req, res) => {
+  res.send('Welcome to the CMS app!');
+});
 
 
 

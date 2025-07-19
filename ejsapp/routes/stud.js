@@ -4,6 +4,24 @@ var database = require('../db/database');
 var bodyParser = require('body-parser')
 var urlencodedParser = bodyParser.urlencoded({ extended: false})
 
+
+
+const { registerStudent } = require('../controllers/usersController');
+
+router.post('/students/save', urlencodedParser, async (req, res) => {
+  try {
+    const id = await registerStudent(req.body);
+    console.log('New student registered with ID:', id);
+    res.redirect('/admin-dashboard/student');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error registering student');
+  }
+});
+
+
+
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.render('login-pages/admin-login', {"role": "Student", "check": "/student/check", "signup": "/student/signup"});

@@ -1,27 +1,26 @@
-// load environment variables from .env
-require('dotenv').config();
 
 const mysql = require('mysql2');
 
+
+
 const connection = mysql.createConnection({
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'cms',
-  port: process.env.DB_PORT || 3306,
+  host: 'localhost',
+  user: 'root',
+  password: '12345',
+  database: 'cms'
 });
 
 connection.connect((err) => {
   if (err) {
-    console.error('❌ Error connecting to database:', err);
+    console.error('Error connecting to database:', err);
     return;
   }
-  console.log('✅ Connected to database successfully');
+  console.log('Connected to database successfully');
   
-  // optional: test query
+  // Test query
   connection.query('SELECT 1 + 1 AS solution', (err, results) => {
     if (err) throw err;
-    console.log('📝 Database test query result:', results[0].solution);
+    console.log('Database test query result:', results[0].solution);
   });
 });
 

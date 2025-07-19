@@ -6,6 +6,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var ejs = require('ejs'); // Import EJS for rendering files
 
+require('dotenv').config();
+
+
 var indexRouter = require('./routes/index');
 var libraryRouter = require('./routes/library');
 var usersRouter = require('./routes/employee');

@@ -6,18 +6,6 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 const studentRouter = require('./stud');
 
 
-const { registerEmployee } = require('../controllers/usersController');
-
-router.post('/employees/hire', urlencodedParser, async (req, res) => {
-  try {
-    const id = await registerEmployee(req.body);
-    console.log('New employee registered with ID:', id);
-    res.redirect('/admin/employees/all');
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('Error registering employee');
-  }
-});
 
 
 

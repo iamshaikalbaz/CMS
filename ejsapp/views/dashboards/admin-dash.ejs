@@ -9,16 +9,17 @@
             body {
                 transition: background-color 0.3s ease, color 0.3s ease;
             }
-        
+
             nav {
                 transition: background-color 0.3s ease;
             }
-        
+
             /* ✅ Apply dark mode styles to body */
             .dark {
                 background-color: rgb(17, 23, 34);
                 color: #191b1c;
             }
+
             #theme-toggle-light-icon {
                 fill: #111111;
                 /* Yellow */
@@ -28,13 +29,14 @@
                 fill: #0b0a0a;
                 /* White */
             }
+
             .dark nav {
                 background-color: rgb(17, 23, 34);
                 border-color: #0d0d0e;
             }
-        
+
             .dark nav a {
-                color: #bfd5ec; 
+                color: #bfd5ec;
             }
         </style>
 </head>
@@ -45,19 +47,12 @@
         <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
         <div class="name">SGDC College Management</div>
 
-        <button id="theme-toggle"
-                    class="ml-3 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg p-2">
+        <button id="theme-toggle" class="ml-3 text-black rounded-lg p-2 text-xl">
+            <i id="theme-toggle-light-icon" class="ri-sun-line hidden"></i>
+            <i id="theme-toggle-dark-icon" class="ri-moon-line"></i>
+        </button>
 
-                    <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zM10 16a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM4.22 4.22a1 1 0 011.42 0l.7.7a1 1 0 01-1.42 1.42l-.7-.7a1 1 0 010-1.42zM14.66 14.66a1 1 0 011.42 0l.7.7a1 1 0 01-1.42 1.42l-.7-.7a1 1 0 010-1.42zM2 10a1 1 0 011-1h1a1 1 0 110 2H3a1 1 0 01-1-1zm14 0a1 1 0 011-1h1a1 1 0 110 2h-1a1 1 0 01-1-1zM4.22 15.78a1 1 0 010-1.42l.7-.7a1 1 0 011.42 1.42l-.7.7a1 1 0 01-1.42 0zM14.66 5.34a1 1 0 010-1.42l.7-.7a1 1 0 011.42 1.42l-.7.7a1 1 0 01-1.42 0z">
-                        </path>
-                    </svg>
-                    <svg id="theme-toggle-dark-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                            d="M17.293 13.293a8 8 0 01-11.612-11.612 1 1 0 10-1.415-1.415 10 10 0 0014.142 14.142 1 1 0 10-1.415-1.415z">
-                        </path>
-                    </svg>
+
 
 
         </button>
@@ -72,23 +67,26 @@
                         class="nav_logo-name">SGDC</span> </a>
                 <div class="admin">
                     <img src="/images/admin.png" alt="">
-                    <h1><%= name %>
+                    <h1>
+                        <%= name %>
                     </h1>
                 </div>
 
                 <div class="nav_list"> <a href="/admin-dashboard/admin-dash" class="nav_link active"> <i
                             class='bx bx-grid-alt nav_icon'></i>
-                        <span class="nav_name">Dashboard</span> </a> <a href="/admin-dashboard/employee" class="nav_link">
-                        <i class='bx bx-user nav_icon'></i> <span class="nav_name">Employees</span> </a> <a href="/admin-dashboard/student"
-                        class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span
-                            class="nav_name">Students</span> </a> <a href="#" class="nav_link"> <i
-                            class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Attendence</span> </a> <a
-                        href="#" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span
-                            class="nav_name">Fees</span> </a> <a href="#" class="nav_link"> <i
-                            class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Notice</span> </a>
+                        <span class="nav_name">Dashboard</span> </a> <a href="/admin-dashboard/employee"
+                        class="nav_link">
+                        <i class='bx bx-user nav_icon'></i> <span class="nav_name">Employees</span> </a> <a
+                        href="/admin-dashboard/student" class="nav_link"> <i
+                            class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Students</span>
+                    </a> <a href="#" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span
+                            class="nav_name">Attendence</span> </a> <a href="#" class="nav_link"> <i
+                            class='bx bx-folder nav_icon'></i> <span class="nav_name">Fees</span> </a> <a href="#"
+                        class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span
+                            class="nav_name">Notice</span> </a>
                 </div>
 
-               
+
 
             </div>
             <a href="/" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">LogOut</span>
@@ -135,81 +133,81 @@
 
     <%- include('./partials/footer'); %>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const toggle = document.getElementById("header-toggle");
-            const nav = document.getElementById("nav-bar");
-            const bodypd = document.getElementById("body-pd");
-            const headerpd = document.getElementById("header");
-            const linkColor = document.querySelectorAll(".nav_link");
-            const themeToggle = document.getElementById("theme-toggle");
-            const lightIcon = document.getElementById("theme-toggle-light-icon");
-            const darkIcon = document.getElementById("theme-toggle-dark-icon");
-    
-            // ✅ Sidebar State: Check LocalStorage
-            if (localStorage.getItem("sidebar") === "show") {
-                nav.classList.add("show");
-                bodypd.classList.add("body-pd");
-                headerpd.classList.add("body-pd");
-                toggle.classList.add("bx-x");
-            }
-    
-            // ✅ Sidebar Toggle + Save State
-            if (toggle && nav && bodypd && headerpd) {
-                toggle.addEventListener("click", () => {
-                    nav.classList.toggle("show");
-                    bodypd.classList.toggle("body-pd");
-                    headerpd.classList.toggle("body-pd");
-                    toggle.classList.toggle("bx-x");
-                    localStorage.setItem("sidebar", nav.classList.contains("show") ? "show" : "hide");
-                });
-            }
-    
-            // ✅ Highlight Active Link (Auto + On Click)
-            function setActiveLink(clickedLink) {
-                linkColor.forEach(link => link.classList.remove("active"));
-                clickedLink.classList.add("active");
-            }
-    
-            linkColor.forEach(link => {
-                link.addEventListener("click", function () {
-                    setActiveLink(this);
-                    localStorage.setItem("activeLink", this.getAttribute("href")); // Save active link to LocalStorage
-                });
-    
-                // ✅ Auto-Active on Page Refresh
-                if (link.getAttribute("href") === localStorage.getItem("activeLink")) {
-                    setActiveLink(link);
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const toggle = document.getElementById("header-toggle");
+                const nav = document.getElementById("nav-bar");
+                const bodypd = document.getElementById("body-pd");
+                const headerpd = document.getElementById("header");
+                const linkColor = document.querySelectorAll(".nav_link");
+                const themeToggle = document.getElementById("theme-toggle");
+                const lightIcon = document.getElementById("theme-toggle-light-icon");
+                const darkIcon = document.getElementById("theme-toggle-dark-icon");
+
+                // ✅ Sidebar State: Check LocalStorage
+                if (localStorage.getItem("sidebar") === "show") {
+                    nav.classList.add("show");
+                    bodypd.classList.add("body-pd");
+                    headerpd.classList.add("body-pd");
+                    toggle.classList.add("bx-x");
                 }
-            });
-    
-            // ✅ Apply Dark Mode to the Entire Body
-            if (localStorage.getItem("theme") === "dark") {
-                document.body.classList.add("dark");
-                darkIcon.classList.add("hidden");
-                lightIcon.classList.remove("hidden");
-            } else {
-                document.body.classList.remove("dark");
-                lightIcon.classList.add("hidden");
-                darkIcon.classList.remove("hidden");
-            }
-    
-            themeToggle.addEventListener("click", function () {
-                document.body.classList.toggle("dark");
-                const isDarkMode = document.body.classList.contains("dark");
-    
-                if (isDarkMode) {
-                    localStorage.setItem("theme", "dark");
+
+                // ✅ Sidebar Toggle + Save State
+                if (toggle && nav && bodypd && headerpd) {
+                    toggle.addEventListener("click", () => {
+                        nav.classList.toggle("show");
+                        bodypd.classList.toggle("body-pd");
+                        headerpd.classList.toggle("body-pd");
+                        toggle.classList.toggle("bx-x");
+                        localStorage.setItem("sidebar", nav.classList.contains("show") ? "show" : "hide");
+                    });
+                }
+
+                // ✅ Highlight Active Link (Auto + On Click)
+                function setActiveLink(clickedLink) {
+                    linkColor.forEach(link => link.classList.remove("active"));
+                    clickedLink.classList.add("active");
+                }
+
+                linkColor.forEach(link => {
+                    link.addEventListener("click", function () {
+                        setActiveLink(this);
+                        localStorage.setItem("activeLink", this.getAttribute("href")); // Save active link to LocalStorage
+                    });
+
+                    // ✅ Auto-Active on Page Refresh
+                    if (link.getAttribute("href") === localStorage.getItem("activeLink")) {
+                        setActiveLink(link);
+                    }
+                });
+
+                // ✅ Apply Dark Mode to the Entire Body
+                if (localStorage.getItem("theme") === "dark") {
+                    document.body.classList.add("dark");
                     darkIcon.classList.add("hidden");
                     lightIcon.classList.remove("hidden");
                 } else {
-                    localStorage.setItem("theme", "light");
+                    document.body.classList.remove("dark");
                     lightIcon.classList.add("hidden");
                     darkIcon.classList.remove("hidden");
                 }
+
+                themeToggle.addEventListener("click", function () {
+                    document.body.classList.toggle("dark");
+                    const isDarkMode = document.body.classList.contains("dark");
+
+                    if (isDarkMode) {
+                        localStorage.setItem("theme", "dark");
+                        darkIcon.classList.add("hidden");
+                        lightIcon.classList.remove("hidden");
+                    } else {
+                        localStorage.setItem("theme", "light");
+                        lightIcon.classList.add("hidden");
+                        darkIcon.classList.remove("hidden");
+                    }
+                });
             });
-        });
-    </script>
+        </script>
 </body>
 
 </html>
